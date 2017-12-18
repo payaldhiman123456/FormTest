@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	table {
+    width: 100%;
+}
+	body {
+  margin: auto;
+  background: #eaeaea;  
+  font-family: 'Open Sans', sans-serif;
+}
+
+.info p {
+  text-align:center;
+  color: #999;
+  text-transform:none;
+  font-weight:600;
+  font-size:15px;
+  margin-top:2px
+}
+
+.info i {
+  color:#F6AA93;
+}
+form h1 {
+  font-size: 18px;
+  background: #e64439  none repeat scroll 0% 0%;
+  color: rgb(255, 255, 255);
+  padding: 22px 25px;
+  border-radius: 5px 5px 0px 0px;
+  margin: auto;
+  text-shadow: none; 
+  text-align:left
+}
+
+form {
+  border-radius: 5px;
+  max-width: 50%;
+  width:100%;
+  margin: 5% auto;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+p span {
+  color: #F00;
+}
+
+p {
+  margin: 0px;
+  font-weight: 500;
+  line-height: 2;
+  color:#333;
+}
+
+h1 {
+  text-align:center; 
+  color: #666;
+  text-shadow: 1px 1px 0px #FFF;
+  margin:50px 0px 0px 0px
+}
+
+input {
+  border-radius: 4px;
+  border: 1px solid #eee;
+  margin-bottom: 15px;
+  width: 82%;
+  height: 40px;
+  float: left;
+  padding: 0px 15px;
+}
+
+a {
+  text-decoration:inherit
+}
+
+textarea {
+  border-radius: 0px 5px 5px 0px;
+  border: 1px solid #EEE;
+  margin: 0;
+  width: 75%;
+  height: 130px; 
+  float: left;
+  padding: 0px 15px;
+}
+
+.form-group {
+  overflow: hidden;
+  clear: both;
+}
+
+.icon-case {
+  width: 35px;
+  float: left;
+  border-radius: 5px 0px 0px 5px;
+  background:#eeeeee;
+  height:42px;
+  position: relative;
+  text-align: center;
+  line-height:40px;
+}
+
+i {
+  color:#555;
+}
+
+.contentform {
+  padding: 40px 30px;
+}
+
+.bouton-contact{
+  background-color: #81BDA4;
+  color: #FFF;
+  text-align: center;
+  width: 100%;
+  border:0;
+  padding: 17px 25px;
+  border-radius: 0px 0px 5px 5px;
+  cursor: pointer;
+  margin-top: 40px;
+  font-size: 18px;
+}
+
+.leftcontact {
+  width:49.5%; 
+  float:left;
+  border-right: 1px dotted #CCC;
+  box-sizing: border-box;
+  padding: 0px 15px 0px 0px;
+}
+
+.rightcontact {
+  width:49.5%;
+  float:right;
+  box-sizing: border-box;
+  padding: 0px 0px 0px 15px;
+}
+
+.validation {
+  display:none;
+  margin: 0 0 10px;
+  font-weight:400;
+  font-size:13px;
+  color: #DE5959;
+}
+
+#sendmessage {
+  border:1px solid #fff;
+  display:none;
+  text-align:center;
+  margin:10px 0;
+  font-weight:600;
+  margin-bottom:30px;
+  background-color: #EBF6E0;
+  color: #5F9025;
+  border: 1px solid #B3DC82;
+  padding: 13px 40px 13px 18px;
+  border-radius: 3px;
+  box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.03);
+}
+
+#sendmessage.show,.show  {
+  display:block;
+}
+select#select {
+    border-radius: 4px;
+    border: 1px solid #eee;
+    margin-bottom: 15px;
+    width: 75%;
+    height: 40px;
+    float: left;
+    padding: 0px 5px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script  type="text/javascript">
+	var counter = 1;
+	
+function addInput(divName){   
+          var newdiv = document.createElement('div'); 
+          newdiv.innerHTML = "<div id='dynamicInput"+(counter)+"'> <table>  <tr><td><p>Primary Skill " + (counter +1) + "<span>*</span></p><input type='text' name='PrimarySkill"+(counter + 1) +"'></td>  <td> <p>Proficiency<span>*</span></p><select id='select' name='Rate"+counter+"' > <option>Basic</option> <option>Intermediate</option> <option>Advanced</option></select></td> </tr> </table></div>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+}
+function removeDiv(divName) {
+   $('#dynamicInput'+(counter-1)).remove(event.preventDefault());
+   counter--;
+}
+
+function addSecInput(divName){   
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "<div id='dynamicSecondaryInput"+(counter)+"'> Secondary Skill " + (counter + 1) + " <br><input type='text' name='SecondarySkill"+(counter + 1) +"'><select id='select' name='Rate"+counter+"' ><option>Basic</option> <option>Intermediate</option> <option>Advanced</option> </select> <label name='Rate"+counter+"'> Proficiency </label></div>";
+          document.getElementById(divName).appendChild(newdiv);
+          counter++;
+}
+function removeSecDiv(divName) {
+   $('#dynamicSecondaryInput'+(counter-1)).remove(event.preventDefault());
+   counter--;
+}
+
+</script>
+<body>
+	  <h1>Elegant Contact Form.</h1>
+   <div class="info"><a href="https://www.grandvincent-marion.fr" target="_blank"><p> Made with <i class="fa fa-heart"></i> by Marion Grandvincent </p></a></div>
+  
+ <form id="test-form">
+	    <h1>Please neter your details:</h1>
+	    
+    <div class="contentform">
+    	<div id="sendmessage"> Your message has been sent successfully. Thank you. </div>
+
+
+    	<div class="leftcontact">
+			 
+
+            <div class="form-group">
+            <p>Name <span>*</span></p>
+            
+				<input type="text" name="Name" id="prenom" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Prénom' doit être renseigné." required/>
+                <div class="validation"></div>
+			</div>
+
+			<div class="form-group">
+			<p>E-mail <span>*</span></p>	
+			
+                <input type="email" name="email" id="email" data-rule="email" data-msg="Vérifiez votre saisie sur les champs : Le champ 'E-mail' est obligatoire." required/>
+                <div class="validation"></div>
+			</div>	
+
+			<div class="form-group">
+			 <div class="col-xs-6">
+        	<div id="dynamicInput">
+         <table>
+         <tr>
+         <td><p>Primary Skill 1<span>*</span></p><input type="text" name="PrimarySkill" required>
+         </td>
+         <td> <p>Proficiency<span>*</span></p><select id="select" name="Rate" > <option>Basic</option> <option>Intermediate</option> <option>Advanced</option></select></td>
+         </tr>
+     </table>
+     </div>
+      <input type="button" value="Add more" onClick="addInput('dynamicInput');">
+	<button onClick="removeDiv(dynamicInput)">Remove</button>
+	  
+        </div>
+			</div>
+
+	</div>
+
+	<div class="rightcontact">	
+
+			<div class="form-group">
+			<p>Overall Experience <span>*</span></p>
+		
+				<input type="text" name="OverallExp" id="OverallExp" data-rule="required" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Ville' doit être renseigné." required/>
+                <div class="validation"></div>
+			</div>	
+
+			<div class="form-group">
+			<p>Experience @BMS <span>*</span></p>	
+			
+				<input type="text" name="Exp@BMS" id="Exp@BMS" data-rule="maxlen:10" data-msg="Vérifiez votre saisie sur les champs : Le champ 'Téléphone' doit être renseigné. Minimum 10 chiffres" required/>
+                <div class="validation"></div>
+			</div>
+
+			
+			<div class="form-group">
+			<div id="dynamicSecondaryInput">
+          <table>
+         <tr>
+         <td><p>Secondary Skill 1</p><input type="text" name="SecondarySkill" >
+         </td>
+         <td> <p>Proficiency</p><select id="select" name="Rate" > <option value="" selected disabled hidden>Select</option> <option>Basic</option> <option>Intermediate</option> <option>Advanced</option> </select></td>
+         </tr>
+     </table>
+     </div>
+      <input type="button" value="Add more" onClick="addSecInput('dynamicSecondaryInput');">
+	<button onClick="removeSecDiv(dynamicSecondaryInput)">Remove</button>
+			</div>	
+	</div>
+	</div>
+<button type="submit" class="bouton-contact" id="submit-form">Send</button>
+	
+</form>	
+</body>
+<script type="text/javascript">
+	//var $form = $('#test-form'),
+    url = 'https://script.google.com/macros/u/0/s/AKfycbz8rla3bq5xHRs7UNJVOvLO6wPINYcHjX4_mBA3a3nVS-_ezt4/exec'
+
+$('#submit-form').on('click', function(e) {
+  e.preventDefault();
+  var jqxhr = $.ajax({
+    url: url,
+    method: "POST",
+    dataType: "json",
+    data: JSON.stringify($('#test-form').serialize())
+  });
+})
+</script>
+</html>
